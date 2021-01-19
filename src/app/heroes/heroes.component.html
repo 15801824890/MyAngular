@@ -1,0 +1,26 @@
+<h2>My Heroes</h2>
+<!--click 外面的圆括号监听这个 <li> 元素的 click 事件。 用户点击 <li> 时执行表达式 onSelect(hero)。-->
+<!-- [class.selected]如果当前行的英雄和 selectedHero 相同，Angular 就会添加 CSS 类 selected，否则就会移除它。-->
+<ul class="heroes">
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+<!--[(ngModel)]双向数据绑定语法hero.name 属性绑定到了 HTML 的 textbox 元素上,从 hero.name 属性流动到 textbox，并且从 textbox 流回到 hero.name-->
+<!-- <div>
+    <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name" />
+    </label>
+</div> -->
+<!-- 使用 *ngIf 隐藏空白的详情,只有当 selectedHero 存在时才显示所选英雄的详情
+<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div>
+        <label>name:
+            <input [(ngModel)]="selectedHero.name" placeholder="name" />
+        </label>
+    </div>
+</div> -->
+<!--[hero]="selectedHero"单向数据绑定。从 HeroesComponent 的 selectedHero 属性绑定到目标元素的 hero 属性，并映射到了 HeroDetailComponent 的 hero 属性-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

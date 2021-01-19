@@ -1,0 +1,12 @@
+<!--使用 *ngIf 隐藏空白的详情,只有当 selectedHero 存在时才显示所选英雄的详情-->
+<div *ngIf="hero">
+
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+        <label>name:
+            <input [(ngModel)]="hero.name" placeholder="name" />
+        </label>
+    </div>
+
+</div>
